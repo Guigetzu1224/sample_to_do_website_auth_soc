@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class='border-bottom sub_container'> Login </h1>
+<form method="POST" action="/login">
+  <div class="form-group">
+    <label for="username">Username: </label>
+    <input type="text" class="form-control" id="username" name="username" minlength="8" aria-describedby="emailHelp" placeholder="Enter Your Username">
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    <small id="pswdHelp" class="form-text text-muted">Never share your password with anyone!</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Log In</button>
+</form>
+<small id='notSignedUp' class="form-text text-muted">Don't have an account yet? Sign up! Click the link below:</small>
+<a href='{{ url_for("signup")}}'>  Sign up!</a>
+{% endblock %}
+
+
+
+

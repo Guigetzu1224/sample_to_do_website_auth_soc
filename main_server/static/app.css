@@ -1,0 +1,35 @@
+body {
+  background-image: url('background.png');
+  background-repeat: repeat;
+  background-color: #cccccc;
+}
+
+.main-info {
+	margin-left:10%;
+	margin-right:10%;
+}
+
+.starting_container {
+	margin-top:3%;
+	padding: 25px 25px;
+}
+
+
+.sub_container {
+	margin-top:2%;
+	margin-bottom:4%;
+}
+
+.topic {
+	margin-top:2%;
+	margin-bottom:2%;
+}
+
+.button_padding_needed {
+	margin-left:1%;
+}
+
+
+.complete {
+    text-decoration: line-through;
+}

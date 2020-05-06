@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="sub_container container bg-white border-bottom">
+ <h1>Hi there, {{ data.user_id }}</h1>
+</div>
+<hl></hl>
+<div class="container bg-white rounded ">
+ <h4 class="border-bottom topic"> Let's take a look at all your connected family members </h3>
+
+    <ul class="list-group">
+        {% for entry in data.list_of_members %} 
+        {% if entry.members == "" %}
+        {% else %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">{{ entry.members}}
+        </li>
+        {% endif %}
+        {% endfor %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title border-bottom topic">Connect with a family member</h3>
+    <div class="col-uato">
+        <form method="POST" action="/family/add/{{ current_user.id }}">
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Username</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" minlength="8" type="text" name="username" placeholder="Username">
+         <button class="btn btn-primary button_padding_needed ">Add Family Member</button>
+      </div>
+
+    </div>
+            </div>    
+
+           
+        </form>
+    </div>
+<h3 class="title border-bottom topic">Pending Family Member Requests</h3>
+<div> 
+
+    {% for entry in data.pending_family_id %}
+    {% if entry=='Null' %}
+    {% else %}
+    {% if entry == '' %}
+    {% else %}
+    <li>{{ entry }} 
+    <button class="btn btn-success" onclick="location.href='/family/confirm/{{ current_user.id }}/{{entry}}'">Accept</button>
+    <button class="btn btn-danger" onclick="location.href='/family/delete/{{current_user.id }}/{{entry}}'">Delete</button>
+    </li>
+    {% endif %}
+    {%endif%}
+    {% endfor %}
+
+</div>
+</div>
+{% endblock %}
+
+

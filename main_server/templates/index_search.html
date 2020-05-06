@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+   
+<body>
+        {% if current_user.is_authenticated %}
+        <h3>{{data.user_id}}'s To Dos</h3>
+        {% endif %}
+        <table class='table'>
+              <thead>
+              <tr>
+              <th scope="col">To Do</th>
+              <th scope="col">When by</th>
+              </tr>
+            </thead>
+            {% for entry in data.to_do %}
+            {% if entry.need_help=="yes" %}
+            <tr> 
+              {% if entry.status=="done" %}
+                <td class='complete'>{{ entry.what_to_do|safe }}</td>
+                <td class='complete'>{{ entry.due_date }}</td>
+              {% else %}
+               <td >{{ entry.what_to_do|safe }}</td>
+                <td>{{ entry.due_date }}</td>
+              {% endif %}
+            </tr>
+            {% endif %}
+            {% else %}
+            <tr>
+                <td>
+                    <em>Unbelievable. Nothing to do for now.</em>
+                </td>
+            </tr>
+            {% endfor %}
+
+{% endblock content %}

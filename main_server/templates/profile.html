@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="sub_container container bg-white border-bottom">
+ <h1>Hi there, {{ data.user_id }}</h1>
+</div>
+<hl></hl>
+<div class="container bg-white rounded ">
+ <h4 class="border-bottom topic"> Let's take a look at all your connected family members </h3>
+
+    <ul class="list-group">
+        {% for entry in data.list_of_members %}
+        {% if entry.members == "" %}
+        {% else %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">{{ entry.members}}
+        </li>
+        {% endif %}
+        {% endfor %}
+</div>
+
+{% endblock %}
