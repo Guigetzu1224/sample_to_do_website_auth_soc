@@ -41,6 +41,7 @@ gcloud compute instances create soc-server --machine-type \
 gcloud compute firewall-rules create rule-allow-tcp-5000 \
 	--source-ranges 0.0.0.0/0 --target-tags http-server --allow tcp:5000
 
+sleep 30
 
 gcloud compute scp --recurse  ./authentication_server auth-server:~
 gcloud compute scp --recurse ./todolist_server/ todo-server:~
